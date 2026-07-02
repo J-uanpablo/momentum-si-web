@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/constants/site";
 
 const benefits = [
@@ -16,7 +17,7 @@ export default function HomePage() {
         <div className="absolute -left-24 bottom-8 h-52 w-52 rounded-full border-[34px] border-white/15" />
         <div className="absolute -right-20 top-0 h-96 w-96 rounded-full border-[60px] border-white/10" />
 
-        <div className="mx-auto grid min-h-[520px] max-w-7xl items-center gap-10 px-5 py-16 md:px-8 lg:grid-cols-[1fr_0.9fr]">
+        <div className="mx-auto grid min-h-[560px] max-w-7xl items-center gap-10 px-5 py-16 md:px-8 lg:grid-cols-[1fr_0.9fr]">
           <AnimatedSection className="relative z-10 max-w-3xl" direction="left">
             <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-white md:text-6xl lg:text-7xl">
               El impulso financiero que necesitas,{" "}
@@ -35,14 +36,19 @@ export default function HomePage() {
           </AnimatedSection>
 
           <AnimatedSection
-            className="relative z-10 hidden min-h-[420px] items-end justify-center lg:flex"
+            className="relative z-10 hidden min-h-[520px] items-end justify-center lg:flex"
             direction="right"
             delay={0.15}
           >
-            <div className="flex h-[420px] w-[420px] items-center justify-center rounded-full bg-white/15 text-center">
-              <p className="max-w-xs text-2xl font-black text-white">
-                Aquí irá la imagen principal exportada desde Figma
-              </p>
+            <div className="relative h-[520px] w-full">
+              <Image
+                src="/images/home/hero-home.png"
+                alt="Mujer sonriendo y haciendo gesto de aprobación para solicitar crédito"
+                width={821}
+                height={634}
+                priority
+                className="absolute bottom-[-65px] right-[-40px] h-auto w-[620px] max-w-none object-contain xl:w-[700px]"
+              />
             </div>
           </AnimatedSection>
         </div>
