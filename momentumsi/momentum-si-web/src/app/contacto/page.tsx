@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SITE_CONFIG } from "@/constants/site";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function ContactPage() {
       />
 
       <section className="bg-brand-soft px-5 py-20 md:px-8">
-        <div className="mx-auto max-w-5xl text-center">
+        <AnimatedSection className="mx-auto max-w-5xl text-center">
           <h1 className="text-4xl font-black text-brand-aqua md:text-5xl">
             Queremos que te sientas seguro en cada paso.
           </h1>
@@ -44,7 +45,7 @@ export default function ContactPage() {
               Te respondemos lo antes posible para resolver tus dudas.
             </p>
           </article>
-        </div>
+        </AnimatedSection>
       </section>
 
       <section className="min-h-[260px] bg-white" />

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type AnimatedSectionProps = {
@@ -16,19 +16,17 @@ export function AnimatedSection({
   delay = 0,
   direction = "up",
 }: AnimatedSectionProps) {
-  const shouldReduceMotion = useReducedMotion();
-
   const getInitialPosition = () => {
-    if (shouldReduceMotion || direction === "none") {
-      return { x: 0, y: 0 };
-    }
-
     if (direction === "left") {
       return { x: -40, y: 0 };
     }
 
     if (direction === "right") {
       return { x: 40, y: 0 };
+    }
+
+    if (direction === "none") {
+      return { x: 0, y: 0 };
     }
 
     return { x: 0, y: 40 };
@@ -38,8 +36,8 @@ export function AnimatedSection({
     <motion.div
       className={cn(className)}
       initial={{
-        opacity: shouldReduceMotion ? 1 : 0,
-        filter: shouldReduceMotion ? "blur(0px)" : "blur(10px)",
+        opacity: 0,
+        filter: "blur(10px)",
         ...getInitialPosition(),
       }}
       whileInView={{
@@ -53,7 +51,7 @@ export function AnimatedSection({
         margin: "-80px",
       }}
       transition={{
-        duration: shouldReduceMotion ? 0 : 0.75,
+        duration: 0.75,
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}

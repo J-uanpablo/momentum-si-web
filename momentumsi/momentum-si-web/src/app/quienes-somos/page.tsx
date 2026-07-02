@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Quiénes Somos",
@@ -39,7 +40,7 @@ export default function AboutPage() {
 
       <section className="bg-brand-soft px-5 py-20 md:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
+          <AnimatedSection direction="left">
             <h1 className="text-5xl font-black leading-none text-brand-dark">
               MoMentum<span className="text-brand-aqua">SÍ</span>
             </h1>
@@ -49,20 +50,28 @@ export default function AboutPage() {
               brindar segundas oportunidades a través de propuestas de valor
               innovadoras.
             </p>
-          </div>
+          </AnimatedSection>
 
-          <div className="flex min-h-[320px] items-center justify-center rounded-[2rem] bg-white shadow-xl">
+          <AnimatedSection
+            className="flex min-h-[320px] items-center justify-center rounded-[2rem] bg-white shadow-xl"
+            direction="right"
+            delay={0.15}
+          >
             <div className="flex h-24 w-24 items-center justify-center rounded-full bg-brand-dark text-4xl text-white">
               ▶
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
       <section className="bg-white px-5 py-20 md:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value) => (
-            <article key={value.title} className="text-center">
+          {values.map((value, index) => (
+            <AnimatedSection
+              key={value.title}
+              className="text-center"
+              delay={index * 0.08}
+            >
               <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-aqua text-3xl text-white">
                 ♡
               </div>
@@ -72,7 +81,7 @@ export default function AboutPage() {
               <p className="mt-2 text-lg font-bold leading-relaxed text-brand-dark">
                 {value.description}
               </p>
-            </article>
+            </AnimatedSection>
           ))}
         </div>
       </section>

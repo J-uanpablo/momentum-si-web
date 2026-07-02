@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/constants/site";
 
@@ -26,7 +27,7 @@ export function PageHero({
       <div className="absolute -right-24 top-0 h-96 w-96 rounded-full border-[60px] border-white/10" />
 
       <div className="mx-auto grid min-h-[510px] max-w-7xl items-center gap-10 px-5 py-16 md:px-8 lg:grid-cols-[1fr_0.9fr]">
-        <div className="relative z-10 max-w-3xl">
+        <AnimatedSection className="relative z-10 max-w-3xl" direction="left">
           <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-white md:text-6xl lg:text-7xl">
             {title}{" "}
             {highlighted ? (
@@ -43,15 +44,19 @@ export function PageHero({
           <div className="mt-9">
             <Button href={SITE_CONFIG.creditUrl}>Solicita tu crédito</Button>
           </div>
-        </div>
+        </AnimatedSection>
 
-        <div className="relative z-10 hidden min-h-[390px] items-end justify-center lg:flex">
+        <AnimatedSection
+          className="relative z-10 hidden min-h-[390px] items-end justify-center lg:flex"
+          direction="right"
+          delay={0.15}
+        >
           <div className="flex h-[390px] w-[390px] items-center justify-center rounded-full bg-white/15 p-8 text-center">
             <p className="max-w-xs text-xl font-black text-white">
               {imageLabel}
             </p>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

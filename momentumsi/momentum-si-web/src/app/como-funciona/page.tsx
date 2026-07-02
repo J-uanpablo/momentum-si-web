@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { PageHero } from "@/components/ui/PageHero";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SITE_CONFIG } from "@/constants/site";
 
 export const metadata: Metadata = {
@@ -59,50 +60,54 @@ export default function HowItWorksPage() {
 
       <section className="bg-brand-soft px-5 py-20 md:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step) => (
-            <article
-              key={step.number}
-              className={`relative min-h-[220px] rounded-3xl border-t-8 border-brand-lime p-8 shadow-sm ${
-                step.featured
-                  ? "bg-brand-aqua text-white"
-                  : "bg-white text-brand-dark"
-              }`}
-            >
-              <div
-                className={`absolute -left-4 -top-5 flex h-14 w-14 items-center justify-center rounded-full text-2xl font-black ${
+          {steps.map((step, index) => (
+            <AnimatedSection key={step.number} delay={index * 0.08}>
+              <article
+                key={step.number}
+                className={`relative min-h-[220px] rounded-3xl border-t-8 border-brand-lime p-8 shadow-sm ${
                   step.featured
-                    ? "bg-brand-lime text-brand-dark"
-                    : "bg-brand-aqua text-white"
+                    ? "bg-brand-aqua text-white"
+                    : "bg-white text-brand-dark"
                 }`}
               >
-                {step.number}
-              </div>
+                <div
+                  className={`absolute -left-4 -top-5 flex h-14 w-14 items-center justify-center rounded-full text-2xl font-black ${
+                    step.featured
+                      ? "bg-brand-lime text-brand-dark"
+                      : "bg-brand-aqua text-white"
+                  }`}
+                >
+                  {step.number}
+                </div>
 
-              <h2 className="mt-3 text-3xl font-black leading-none">
-                {step.title}
-              </h2>
-              <p
-                className={`mt-3 text-lg font-bold leading-relaxed ${
-                  step.featured ? "text-white" : "text-brand-dark"
-                }`}
-              >
-                {step.description}
-              </p>
-            </article>
+                <h2 className="mt-3 text-3xl font-black leading-none">
+                  {step.title}
+                </h2>
+                <p
+                  className={`mt-3 text-lg font-bold leading-relaxed ${
+                    step.featured ? "text-white" : "text-brand-dark"
+                  }`}
+                >
+                  {step.description}
+                </p>
+              </article>
+            </AnimatedSection>
           ))}
         </div>
       </section>
 
       <section className="bg-white px-5 py-20 text-center md:px-8">
-        <h2 className="text-5xl font-black text-brand-dark">
-          ¿Listo para comenzar?
-        </h2>
+        <AnimatedSection>
+          <h2 className="text-5xl font-black text-brand-dark">
+            ¿Listo para comenzar?
+          </h2>
 
-        <div className="mx-auto mt-4 h-1.5 w-72 rounded-full bg-gradient-to-r from-brand-aqua via-brand-aqua to-brand-lime" />
+          <div className="mx-auto mt-4 h-1.5 w-72 rounded-full bg-gradient-to-r from-brand-aqua via-brand-aqua to-brand-lime" />
 
-        <div className="mt-8">
-          <Button href={SITE_CONFIG.creditUrl}>Solicita tu crédito</Button>
-        </div>
+          <div className="mt-8">
+            <Button href={SITE_CONFIG.creditUrl}>Solicita tu crédito</Button>
+          </div>
+        </AnimatedSection>
       </section>
     </main>
   );
