@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SITE_CONFIG } from "@/constants/site";
 
 const benefits = [
@@ -16,7 +17,7 @@ export default function HomePage() {
         <div className="absolute -right-20 top-0 h-96 w-96 rounded-full border-[60px] border-white/10" />
 
         <div className="mx-auto grid min-h-[520px] max-w-7xl items-center gap-10 px-5 py-16 md:px-8 lg:grid-cols-[1fr_0.9fr]">
-          <div className="relative z-10 max-w-3xl">
+          <AnimatedSection className="relative z-10 max-w-3xl" direction="left">
             <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-white md:text-6xl lg:text-7xl">
               El impulso financiero que necesitas,{" "}
               <span className="text-brand-dark">directo a tu nómina.</span>
@@ -31,15 +32,19 @@ export default function HomePage() {
             <div className="mt-9">
               <Button href={SITE_CONFIG.creditUrl}>Solicita tu crédito</Button>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="relative z-10 hidden min-h-[420px] items-end justify-center lg:flex">
+          <AnimatedSection
+            className="relative z-10 hidden min-h-[420px] items-end justify-center lg:flex"
+            direction="right"
+            delay={0.15}
+          >
             <div className="flex h-[420px] w-[420px] items-center justify-center rounded-full bg-white/15 text-center">
               <p className="max-w-xs text-2xl font-black text-white">
                 Aquí irá la imagen principal exportada desde Figma
               </p>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -51,15 +56,19 @@ export default function HomePage() {
           </h2>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((benefit) => (
-              <article key={benefit} className="text-center">
+            {benefits.map((benefit, index) => (
+              <AnimatedSection
+                key={benefit}
+                className="text-center"
+                delay={index * 0.08}
+              >
                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-aqua text-3xl font-black text-white">
                   ✓
                 </div>
                 <h3 className="mt-5 text-xl font-black text-brand-dark">
                   {benefit}
                 </h3>
-              </article>
+              </AnimatedSection>
             ))}
           </div>
 

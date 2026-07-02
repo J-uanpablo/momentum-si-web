@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { SITE_CONFIG } from "@/constants/site";
 import "./globals.css";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="es-CO">
       <body className={nunito.variable}>
+        <SmoothScroll />
         <Navbar />
         {children}
         <Footer />
