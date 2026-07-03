@@ -4,10 +4,26 @@ import Image from "next/image";
 import { SITE_CONFIG } from "@/constants/site";
 
 const benefits = [
-  "Crédito de Libranza",
-  "Compra de Motos",
-  "Convenios",
-  "Crédito Rotativo",
+  {
+    title: "Crédito de Libranza",
+    icon: "/images/home/icons/icon-libranza.png",
+    alt: "Ícono de crédito de libranza",
+  },
+  {
+    title: "Compra de Motos",
+    icon: "/images/home/icons/icon-motos.png",
+    alt: "Ícono de compra de motos",
+  },
+  {
+    title: "Convenios",
+    icon: "/images/home/icons/icon-convenios.png",
+    alt: "Ícono de convenios",
+  },
+  {
+    title: "Crédito Rotativo",
+    icon: "/images/home/icons/icon-rotativo.png",
+    alt: "Ícono de crédito rotativo",
+  },
 ];
 
 export default function HomePage() {
@@ -54,25 +70,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-brand-soft px-5 py-16 md:px-8">
+      <section className="bg-brand-soft px-5 py-16 md:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl text-center">
           <h2 className="text-4xl font-black tracking-tight text-brand-dark md:text-5xl">
             Beneficios que impulsan{" "}
             <span className="text-brand-aqua">tu bienestar</span>
           </h2>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((benefit, index) => (
               <AnimatedSection
-                key={benefit}
+                key={benefit.title}
                 className="text-center"
                 delay={index * 0.08}
               >
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-aqua text-3xl font-black text-white">
-                  ✓
+                <div className="mx-auto flex h-24 w-24 items-center justify-center">
+                  <Image
+                    src={benefit.icon}
+                    alt={benefit.alt}
+                    width={96}
+                    height={96}
+                    className="h-24 w-24 object-contain transition duration-300 hover:scale-110"
+                  />
                 </div>
-                <h3 className="mt-5 text-xl font-black text-brand-dark">
-                  {benefit}
+
+                <h3 className="mt-5 text-xl font-black text-brand-dark md:text-2xl">
+                  {benefit.title}
                 </h3>
               </AnimatedSection>
             ))}
@@ -84,23 +107,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-brand-dark px-5 py-20 text-white md:px-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
-          <div className="min-h-[320px] rounded-tr-[140px] bg-white/10 p-8">
-            <p className="text-xl font-bold text-white/75">
-              Aquí irá la imagen del bloque “La gente primero”.
-            </p>
-          </div>
+      <section className="relative overflow-hidden bg-brand-dark text-white">
+        <div className="absolute left-0 top-0 hidden h-full w-[38%] rounded-br-[220px] bg-brand-aqua/45 lg:block" />
+        <div className="absolute left-0 top-0 hidden h-full w-[26%] rounded-br-[200px] bg-brand-dark lg:block" />
 
-          <div>
-            <h2 className="text-5xl font-black leading-none tracking-tight">
+        <div className="mx-auto grid min-h-[430px] max-w-7xl items-center gap-10 px-5 pt-12 md:px-8 lg:grid-cols-[1fr_1fr] lg:pt-0">
+          <AnimatedSection
+            className="relative z-10 min-h-[360px] lg:min-h-[430px]"
+            direction="left"
+          >
+            <Image
+              src="/images/home/people-first.png"
+              alt="Colaboradores de MoMentum SÍ sonriendo"
+              width={746}
+              height={490}
+              className="absolute bottom--20 left-[-60px] h-auto w-[620px] max-w-none object-contain md:left-[-20px] lg:left-[-80px] lg:w-[720px] xl:left-[-120px] xl:w-[780px]"
+            />
+          </AnimatedSection>
+
+          <AnimatedSection
+            className="relative z-10 pb-16 pt-4 lg:pb-0 lg:pt-0"
+            direction="right"
+            delay={0.15}
+          >
+            <h2 className="text-5xl font-black leading-none tracking-tight md:text-6xl">
               La gente <span className="text-brand-aqua">primero</span>
             </h2>
-            <p className="mt-5 max-w-xl text-xl font-bold leading-relaxed text-white">
-              Más de 6.000 colaboradores cuentan con beneficios pensados para
-              mejorar su bienestar y acompañar sus proyectos de vida.
+
+            <p className="mt-5 max-w-2xl text-xl font-bold leading-relaxed text-white md:text-2xl">
+              <span className="text-brand-aqua">
+                Más de 6.000 colaboradores
+              </span>{" "}
+              cuentan con beneficios pensados para mejorar su bienestar y
+              acompañar sus proyectos de vida.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
