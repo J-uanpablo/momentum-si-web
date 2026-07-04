@@ -37,6 +37,7 @@ const stats = [
 export default function CreditLinesPage() {
   return (
     <main>
+      <div className="h-[12px] bg-white" aria-hidden="true" />
       <PageHero
         dark
         title="Más que créditos"

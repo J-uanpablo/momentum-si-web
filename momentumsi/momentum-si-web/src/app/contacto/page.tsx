@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
+      <div className="h-[12px] bg-white" aria-hidden="true" />
       <PageHero
         title="¿Tienes alguna duda?"
         description="Desde tu primera consulta hasta el desembolso de tu crédito, nuestro equipo estará contigo para resolver tus dudas."

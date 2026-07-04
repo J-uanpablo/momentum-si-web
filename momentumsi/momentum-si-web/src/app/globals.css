@@ -33,7 +33,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family:
-    var(--font-nunito),
+    var(--font-circe-rounded),
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
@@ -49,6 +49,14 @@ a {
   background: var(--brand-lime);
   color: var(--brand-dark);
 }
+.font-brand {
+  font-family: var(--font-circe-rounded), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family:
+    var(--font-intro-bold-alt), var(--font-circe-rounded), system-ui, sans-serif;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -63,4 +71,12 @@ a {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+.font-button {
+  font-family:
+    var(--font-intro-medium), var(--font-circe-rounded), system-ui, sans-serif;
+}
+.font-navbar {
+  font-family:
+    var(--font-intro-bold), var(--font-circe-rounded), system-ui, sans-serif;
 }

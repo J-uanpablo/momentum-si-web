@@ -52,6 +52,7 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <main>
+      <div className="h-[12px] bg-white" aria-hidden="true" />
       <PageHero
         title="Conoce el paso a paso para solicitar"
         highlighted="tu crédito."

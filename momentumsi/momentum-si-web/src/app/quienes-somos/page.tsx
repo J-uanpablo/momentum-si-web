@@ -32,6 +32,7 @@ const values = [
 export default function AboutPage() {
   return (
     <main>
+      <div className="h-[12px] bg-white" aria-hidden="true" />
       <PageHero
         title="Somos la financiera del"
         highlighted="Grupo MoMentum"

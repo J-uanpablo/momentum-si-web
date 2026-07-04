@@ -28,7 +28,7 @@ export function PageHero({
 
       <div className="mx-auto grid min-h-[510px] max-w-7xl items-center gap-10 px-5 py-16 md:px-8 lg:grid-cols-[1fr_0.9fr]">
         <AnimatedSection className="relative z-10 max-w-3xl" direction="left">
-          <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-white md:text-6xl lg:text-7xl">
+          <h1 className="font-display text-5xl font-bold leading-[0.95] tracking-[0em] text-white md:text-6xl lg:text-7xl">
             {title}{" "}
             {highlighted ? (
               <span className={dark ? "text-brand-aqua" : "text-brand-dark"}>
@@ -37,7 +37,7 @@ export function PageHero({
             ) : null}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-xl font-bold leading-relaxed text-white">
+          <p className="font-brand mt-6 max-w-2xl text-xl font-bold leading-relaxed text-white">
             {description}
           </p>
 

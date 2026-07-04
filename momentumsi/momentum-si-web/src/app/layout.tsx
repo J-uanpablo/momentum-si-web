@@ -1,14 +1,68 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import localFont from "next/font/local";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { SITE_CONFIG } from "@/constants/site";
 import "./globals.css";
 
-const nunito = Nunito({
-  subsets: ["latin"],
-  variable: "--font-nunito",
+const circeRounded = localFont({
+  src: [
+    {
+      path: "../fonts/CIRCE/CirceRounded-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/CIRCE/CirceRounded-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/CIRCE/CirceRounded-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/CIRCE/CirceRounded-ExtraBold.otf",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+  variable: "--font-circe-rounded",
+  display: "swap",
+});
+
+const introBoldAlt = localFont({
+  src: [
+    {
+      path: "../fonts/INTRO-FONT/Intro-BoldAlt.otf",
+      style: "normal",
+    },
+  ],
+  variable: "--font-intro-bold-alt",
+  display: "swap",
+});
+const introMedium = localFont({
+  src: [
+    {
+      path: "../fonts/INTRO-FONT/Intro-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-intro-medium",
+  display: "swap",
+});
+const introBold = localFont({
+  src: [
+    {
+      path: "../fonts/INTRO-FONT/Intro-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-intro-bold",
   display: "swap",
 });
 
@@ -41,7 +95,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-CO">
-      <body className={nunito.variable}>
+      <body
+        className={`${circeRounded.variable} ${introBoldAlt.variable} ${introMedium.variable} ${introBold.variable}`}
+      >
         <SmoothScroll />
         <Navbar />
         {children}
