@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/Button";
-import { PageHero } from "@/components/ui/PageHero";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { Button } from "@/components/ui/Button";
 import { SITE_CONFIG } from "@/constants/site";
 
 export const metadata: Metadata = {
@@ -51,28 +51,80 @@ const steps = [
 
 export default function HowItWorksPage() {
   return (
-    <main>
+    <main className="bg-white">
       <div className="h-[12px] bg-white" aria-hidden="true" />
-      <PageHero
-        title="Conoce el paso a paso para solicitar"
-        highlighted="tu crédito."
-        description="Todo el proceso es simple, rápido y 100% digital."
-      />
 
-      <section className="bg-brand-soft px-5 py-20 md:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <section className="relative overflow-hidden bg-brand-aqua">
+        <div
+          className="absolute -left-[115px] bottom-[-55px] hidden h-[300px] w-[300px] rounded-full border-[58px] border-white/18 md:block"
+          aria-hidden="true"
+        />
+
+        <div
+          className="absolute right-[-300px] top-[-515px] hidden h-[1040px] w-[1040px] rounded-full border-[220px] border-white/12 lg:block"
+          aria-hidden="true"
+        />
+
+        <div className="mx-auto grid min-h-[560px] max-w-[1440px] items-center gap-4 px-5 py-14 md:px-10 lg:grid-cols-[1.02fr_0.98fr] lg:py-0">
+          <AnimatedSection
+            className="relative z-10 max-w-[760px] lg:pl-8 xl:pl-14 2xl:pl-0"
+            direction="left"
+          >
+            <h1 className="font-display text-[44px] font-bold leading-[44px] tracking-[0.02em] md:text-[58px] md:leading-[56px] lg:text-[64px] lg:leading-[60px]">
+              <span className="block whitespace-nowrap text-brand-dark">
+                Conoce el paso a paso
+              </span>
+              <span className="block whitespace-nowrap text-white">
+                para solicitar tu crédito.
+              </span>
+            </h1>
+
+            <p className="font-brand mt-4 max-w-[460px] text-[20px] font-bold leading-[26px] tracking-[0em] text-white md:text-[24px] md:leading-[30px]">
+              Todo el proceso es simple, rápido y
+              <br />
+              100 % digital.
+            </p>
+
+            <div className="mt-8">
+              <Button
+                href={SITE_CONFIG.creditUrl}
+                className="h-[54px] w-[252px] rounded-[18px] px-0 py-0 font-button text-[22px] font-medium leading-none text-brand-dark/80"
+              >
+                Solicita tu crédito
+              </Button>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection
+            className="relative z-10 hidden min-h-[560px] items-end justify-center lg:flex"
+            direction="right"
+            delay={0.15}
+          >
+            <Image
+              src="/images/como-funciona/hero-como-funciona.png"
+              alt="Mujer revisando su celular para solicitar crédito"
+              width={720}
+              height={680}
+              priority
+              className="absolute bottom-0 right-[-20px] h-[540px] w-auto max-w-none object-contain xl:right-[10px] xl:h-[565px] 2xl:right-[-5px]"
+            />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="bg-brand-soft px-5 py-16 md:px-8 lg:py-[70px]">
+        <div className="mx-auto grid max-w-[1320px] gap-x-12 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <AnimatedSection key={step.number} delay={index * 0.08}>
               <article
-                key={step.number}
-                className={`relative min-h-[220px] rounded-3xl border-t-8 border-brand-lime p-8 shadow-sm ${
+                className={`relative min-h-[220px] rounded-[22px] border-t-[10px] border-brand-lime px-8 pb-8 pt-9 shadow-sm ${
                   step.featured
                     ? "bg-brand-aqua text-white"
                     : "bg-white text-brand-dark"
                 }`}
               >
                 <div
-                  className={`absolute -left-4 -top-5 flex h-14 w-14 items-center justify-center rounded-full text-2xl font-black ${
+                  className={`absolute -left-3 -top-6 flex h-[58px] w-[58px] items-center justify-center rounded-full font-display text-[30px] font-bold leading-none ${
                     step.featured
                       ? "bg-brand-lime text-brand-dark"
                       : "bg-brand-aqua text-white"
@@ -81,11 +133,16 @@ export default function HowItWorksPage() {
                   {step.number}
                 </div>
 
-                <h2 className="mt-3 text-3xl font-black leading-none">
+                <h2
+                  className={`font-display text-[34px] font-bold leading-[34px] tracking-[0.02em] md:text-[38px] md:leading-[38px] ${
+                    step.featured ? "text-white" : "text-brand-dark"
+                  }`}
+                >
                   {step.title}
                 </h2>
+
                 <p
-                  className={`mt-3 text-lg font-bold leading-relaxed ${
+                  className={`font-brand mt-2 max-w-[320px] text-[20px] font-bold leading-[25px] tracking-[0em] ${
                     step.featured ? "text-white" : "text-brand-dark"
                   }`}
                 >
@@ -97,16 +154,24 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-20 text-center md:px-8">
+      <section className="bg-white px-5 py-16 text-center md:px-8 lg:py-[72px]">
         <AnimatedSection>
-          <h2 className="text-5xl font-black text-brand-dark">
+          <h2 className="font-display text-[42px] font-bold leading-[44px] tracking-[0.02em] text-brand-dark md:text-[58px] md:leading-[58px]">
             ¿Listo para comenzar?
           </h2>
 
-          <div className="mx-auto mt-4 h-1.5 w-72 rounded-full bg-gradient-to-r from-brand-aqua via-brand-aqua to-brand-lime" />
+          <div className="mx-auto mt-4 flex h-[5px] w-[280px] overflow-hidden rounded-full md:w-[310px]">
+            <div className="h-full flex-1 bg-brand-aqua" />
+            <div className="h-full flex-1 bg-brand-lime" />
+          </div>
 
           <div className="mt-8">
-            <Button href={SITE_CONFIG.creditUrl}>Solicita tu crédito</Button>
+            <Button
+              href={SITE_CONFIG.creditUrl}
+              className="h-[54px] w-[252px] rounded-[18px] px-0 py-0 font-button text-[22px] font-medium leading-none text-brand-dark/80"
+            >
+              Solicita tu crédito
+            </Button>
           </div>
         </AnimatedSection>
       </section>
