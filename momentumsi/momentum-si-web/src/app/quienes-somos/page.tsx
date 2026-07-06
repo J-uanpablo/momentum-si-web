@@ -107,7 +107,7 @@ export default function QuienesSomosPage() {
             direction="left"
           >
             <Image
-              src="/images/logos/momentum-si-logo.png"
+              src="/images/logos/momentum-si-logo-2.png"
               alt="MoMentum SÍ"
               width={860}
               height={290}

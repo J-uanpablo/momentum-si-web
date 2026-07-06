@@ -80,3 +80,54 @@ a {
   font-family:
     var(--font-intro-bold), var(--font-circe-rounded), system-ui, sans-serif;
 }
+@keyframes momentumIconFloat {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(2deg) scale(1.04);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes momentumIconGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 8px 14px rgba(37, 189, 193, 0.2));
+  }
+
+  50% {
+    filter: drop-shadow(0 14px 24px rgba(37, 189, 193, 0.42));
+  }
+}
+
+.momentum-icon-animate {
+  animation:
+    momentumIconFloat 3.2s ease-in-out infinite,
+    momentumIconGlow 2.6s ease-in-out infinite;
+  transform-origin: center;
+  transition:
+    transform 300ms ease,
+    filter 300ms ease;
+  will-change: transform, filter;
+}
+
+.group:hover .momentum-icon-animate {
+  animation: none;
+  transform: translateY(-6px) scale(1.12) rotate(-4deg);
+  filter: drop-shadow(0 16px 28px rgba(37, 189, 193, 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .momentum-icon-animate {
+    animation: none;
+  }
+
+  .group:hover .momentum-icon-animate {
+    transform: none;
+  }
+}

@@ -189,7 +189,7 @@ export default function CreditLinesPage() {
           <div className="mt-12 text-center">
             <Button
               href={SITE_CONFIG.creditUrl}
-              className="h-[44px] w-[230px] rounded-[16px] px-0 py-0 font-button text-[18px] font-medium leading-none text-brand-dark/80"
+              className="h-[54px] w-[252px] rounded-[16px] px-0 py-0 font-button text-[18px] font-medium leading-none text-brand-dark/80"
             >
               Solicita tu crédito
             </Button>

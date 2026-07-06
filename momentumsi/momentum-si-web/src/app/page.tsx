@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Image from "next/image";
 import { SITE_CONFIG } from "@/constants/site";
+import { AnimatedIcon } from "@/components/ui/AnimatedIcon";
 
 const benefits = [
   {
@@ -110,16 +111,17 @@ export default function HomePage() {
             {benefits.map((benefit, index) => (
               <AnimatedSection
                 key={benefit.title}
-                className="text-center"
+                className="group text-center"
                 delay={index * 0.08}
               >
                 <div className="mx-auto flex h-24 w-24 items-center justify-center">
-                  <Image
+                  <AnimatedIcon
                     src={benefit.icon}
                     alt={benefit.alt}
                     width={96}
                     height={96}
-                    className="h-24 w-24 object-contain transition duration-300 hover:scale-110"
+                    delay={index * 0.15}
+                    className="h-24 w-24 object-contain"
                   />
                 </div>
 
@@ -133,7 +135,7 @@ export default function HomePage() {
           <div className="mt-10">
             <Button
               href={SITE_CONFIG.creditUrl}
-              className="font-medium h-[44px] w-[230px] rounded-[16px] text-[18px] text-brand-dark/80"
+              className="font-medium h-[54px] w-[252px] rounded-[16px] text-[18px] text-brand-dark/80"
             >
               Solicita tu crédito
             </Button>
@@ -185,16 +187,17 @@ export default function HomePage() {
           <div className="grid gap-7">
             <AnimatedSection>
               <article className="flex min-h-[196px] items-center rounded-[32px] bg-brand-lime px-10 md:px-16">
-                <h2 className="font-display max-w-[560px] text-[48px] font-bold leading-[46px] tracking-[0.02em] text-brand-dark md:text-[64px] md:leading-[60px]">
-                  ¿Por qué
-                  <br />
-                  Momentum Sí?
+                <h2 className="font-display max-w-[620px] text-[48px] font-bold leading-[46px] tracking-[0.02em] text-brand-dark md:text-[64px] md:leading-[60px]">
+                  <span className="block">¿Por qué</span>
+                  <span className="block whitespace-nowrap">
+                    Momentum{"\u00A0"}Sí?
+                  </span>
                 </h2>
               </article>
             </AnimatedSection>
 
             <AnimatedSection delay={0.08}>
-              <article className="grid min-h-[174px] items-center rounded-[32px] bg-brand-aqua px-10 md:grid-cols-[1fr_auto] md:px-16">
+              <article className="group grid min-h-[174px] items-center rounded-[32px] bg-brand-aqua px-10 md:grid-cols-[1fr_auto] md:px-16">
                 <div>
                   <h3 className="font-display text-[34px] font-bold leading-[34px] tracking-[0.02em] text-brand-dark md:text-[40px] md:leading-[40px]">
                     100% Digital y
@@ -210,11 +213,12 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-8 flex justify-center md:mt-0 md:pr-6">
-                  <Image
+                  <AnimatedIcon
                     src="/images/home/why/icon-digital.png"
                     alt="Ícono de crédito digital desde celular"
                     width={110}
                     height={110}
+                    delay={0.1}
                     className="h-[110px] w-[110px] object-contain"
                   />
                 </div>
@@ -223,14 +227,17 @@ export default function HomePage() {
           </div>
 
           <AnimatedSection delay={0.14}>
-            <article className="flex min-h-[397px] flex-col items-center justify-center rounded-[32px] bg-brand-dark px-8 text-center text-white">
-              <Image
-                src="/images/home/why/icon-aprobacion.png"
-                alt="Ícono de aprobación rápida"
-                width={140}
-                height={140}
-                className="mb-8 h-[140px] w-[140px] object-contain drop-shadow-[0_8px_18px_rgba(37,189,193,0.35)]"
-              />
+            <article className="group flex min-h-[397px] flex-col items-center justify-center rounded-[32px] bg-brand-dark px-8 text-center text-white">
+              <div className="mb-8">
+                <AnimatedIcon
+                  src="/images/home/why/icon-aprobacion.png"
+                  alt="Ícono de aprobación rápida"
+                  width={140}
+                  height={140}
+                  delay={0.2}
+                  className="h-[140px] w-[140px] object-contain drop-shadow-[0_8px_18px_rgba(37,189,193,0.35)]"
+                />
+              </div>
 
               <h3 className="font-display text-[34px] font-bold leading-[34px] tracking-[0.02em] text-white md:text-[40px] md:leading-[40px]">
                 Aprobación
@@ -247,14 +254,17 @@ export default function HomePage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <article className="flex min-h-[397px] flex-col items-center justify-center rounded-[32px] bg-brand-aqua px-8 text-center">
-              <Image
-                src="/images/home/why/icon-nomina.png"
-                alt="Ícono de descuento por nómina"
-                width={140}
-                height={140}
-                className="mb-8 h-[140px] w-[140px] object-contain drop-shadow-[0_16px_22px_rgba(11,56,59,0.18)]"
-              />
+            <article className="group flex min-h-[397px] flex-col items-center justify-center rounded-[32px] bg-brand-aqua px-8 text-center">
+              <div className="mb-8">
+                <AnimatedIcon
+                  src="/images/home/why/icon-nomina.png"
+                  alt="Ícono de descuento por nómina"
+                  width={140}
+                  height={140}
+                  delay={0.35}
+                  className="h-[140px] w-[140px] object-contain drop-shadow-[0_16px_22px_rgba(11,56,59,0.18)]"
+                />
+              </div>
 
               <h3 className="font-display text-[34px] font-bold leading-[34px] tracking-[0.02em] text-brand-dark md:text-[40px] md:leading-[40px]">
                 Descuento
