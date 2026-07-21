@@ -8,6 +8,7 @@ type ButtonProps = {
   className?: string;
   showIcon?: boolean;
   type?: "button" | "submit" | "reset";
+  onClick?: () => void;
 };
 
 export function Button({
@@ -16,6 +17,7 @@ export function Button({
   className,
   showIcon = true,
   type = "button",
+  onClick,
 }: ButtonProps) {
   const classes = cn(
     "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl bg-brand-lime px-6 py-3 text-base font-black text-brand-dark shadow-sm transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-brand-lime/40 active:scale-[0.98]",
@@ -47,7 +49,7 @@ export function Button({
   }
 
   return (
-    <button className={classes} type={type}>
+    <button className={classes} type={type} onClick={onClick}>
       {content}
     </button>
   );

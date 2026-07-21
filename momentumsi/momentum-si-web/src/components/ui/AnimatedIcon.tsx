@@ -10,6 +10,7 @@ type AnimatedIconProps = {
   height: number;
   className?: string;
   delay?: number;
+  floating?: boolean;
 };
 
 export function AnimatedIcon({
@@ -19,7 +20,19 @@ export function AnimatedIcon({
   height,
   className,
   delay = 0,
+  floating = false,
 }: AnimatedIconProps) {
+  const image = (
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      draggable={false}
+    />
+  );
+
   return (
     <motion.div
       initial={{
@@ -34,7 +47,7 @@ export function AnimatedIcon({
         scale: 1,
         rotate: 0,
       }}
-      viewport={{ once: false, amount: 0.45 }}
+      viewport={{ once: true, amount: 0.45 }}
       transition={{
         duration: 0.65,
         delay,
@@ -47,28 +60,26 @@ export function AnimatedIcon({
       }}
       className="inline-flex"
     >
-      <motion.div
-        animate={{
-          y: [0, -12, 0],
-          rotate: [0, 3, 0, -3, 0],
-          scale: [1, 1.06, 1],
-        }}
-        transition={{
-          duration: 2.4,
-          repeat: Infinity,
-          repeatType: "loop",
-          ease: "easeInOut",
-          delay,
-        }}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          className={className}
-        />
-      </motion.div>
+      {floating ? (
+        <motion.div
+          animate={{
+            y: [0, -12, 0],
+            rotate: [0, 3, 0, -3, 0],
+            scale: [1, 1.06, 1],
+          }}
+          transition={{
+            duration: 2.4,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+            delay,
+          }}
+        >
+          {image}
+        </motion.div>
+      ) : (
+        image
+      )}
     </motion.div>
   );
 }

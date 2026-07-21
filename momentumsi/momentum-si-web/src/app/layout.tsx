@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { SITE_CONFIG } from "@/constants/site";
+import { DisableImageDrag } from "@/components/ui/DisableImageDrag";
 import "./globals.css";
 
 const circeRounded = localFont({
@@ -98,6 +99,7 @@ export default function RootLayout({
       <body
         className={`${circeRounded.variable} ${introBoldAlt.variable} ${introMedium.variable} ${introBold.variable}`}
       >
+        <DisableImageDrag />
         <SmoothScroll />
         <Navbar />
         {children}
